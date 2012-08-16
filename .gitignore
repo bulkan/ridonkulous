@@ -1,6 +1,7 @@
 # virtualenv
 include
 lib
+local
 
 *.py[co]
 
