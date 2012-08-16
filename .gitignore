@@ -1,3 +1,7 @@
+# virtualenv
+include
+lib
+
 *.py[co]
 
 # Packages
