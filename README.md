@@ -11,6 +11,3 @@ todo
 * create a virtual env
 * pip install requirements
 ** have a local cache of pip requirements
-
-
-
