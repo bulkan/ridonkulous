@@ -34,3 +34,7 @@ pip-log.txt
 #vim
 *.swp*
 *.swo
+
+# other
+htmlcov
+man*
