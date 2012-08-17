@@ -1,4 +1,5 @@
 import os
+#import git
 
 from virtualenv import create_environment
 
@@ -16,6 +17,7 @@ def main():
     create_environment(vpath, site_packages=False)
     os.chdir(vpath)
     os.system(r'%s/bin/pip install requests' % vpath)
+    #git.Git().clone("git@github.com:bulkan/ridonkulous.git")
 
 
 if __name__ == '__main__':
