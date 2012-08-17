@@ -8,7 +8,7 @@ sys.path.append('../')
 
 from webtest import TestApp
 
-from app import github
+from hook_listener import github
 
 
 class ServerTests(unittest.TestCase):
