@@ -1,3 +1,7 @@
-Flask
 GitPython
-requests
+Jinja2
+bottle
+cov-core
+coverage
+nose
+nose-cov
