@@ -1,15 +1,23 @@
 import os
+import subprocess
 import json
+import logging
+import tempfile
 
+import git
 import bottle
 
 from bottle import route, run, request, response
 from bottle import jinja2_template as template
 
 
-templates = os.path.join(os.getcwd(), 'hook_listener', 'templates')
+from virtualenv import create_environment
 
+
+templates = os.path.join(os.getcwd(), 'hook_listener', 'templates')
 bottle.TEMPLATE_PATH.append(templates)
+
+logger = logging.getLogger(__name__)
 
 
 @route('/', method='GET')
@@ -30,6 +38,33 @@ def hook():
     repo_name = payload['repository']['name']
     owner = payload['repository']['owner']['name']
     repo_url = "git@github.com:%s/%s.git" % (owner, repo_name)
+
+    logger.info("repo: %s" % repo_url)
+
+    vpath = tempfile.mkdtemp(suffix="ridonkulous")
+
+    logger.debug("cloning into: %s" % vpath)
+    print vpath
+
+    create_environment(vpath, site_packages=False)
+
+    os.chdir(vpath)
+
+    logger.info('cloning repo')
+
+    git.Git().clone(repo_url)
+    os.chdir(os.path.join(vpath, repo_name))
+
+    pip = "%s/bin/pip" % vpath
+    #python = "%s/bin/python"
+    nose = "%s/bin/nosetests"
+
+    ret = subprocess.call(r'%s install -r requirements.txt' % pip, shell=True)
+
+    print "running nose"
+    ret = subprocess.call(r'nostests' % nose, shell=True)
+
+    print ret
 
     return 'OK'
 
