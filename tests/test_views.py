@@ -13,17 +13,20 @@ from hook_listener import github
 
 class ServerTests(unittest.TestCase):
 
+    def setUp(self):
+        self.app = TestApp(github.app)
+
     def test_app_index(self):
-        app = TestApp(github.app)
         payload = open('tests/payload').read()
-        resp = app.post('/', {'payload': payload})
+        resp = self.app.post('/hook', {'payload': payload})
         self.assertEqual("OK", resp.body)
 
     def test_status_codes(self):
-        app = TestApp(github.app)
-
         # get not allowed
-        app.get('/', status=405)
+        self.app.get('/hook', status=405)
 
         # post without payload should 500
-        app.post('/', status=500)
+        self.app.post('/hook', status=500)
+
+    def test_index(self):
+        self.app.get('/')
