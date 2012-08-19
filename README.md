@@ -22,3 +22,6 @@ Worked out the following using. see venv.py
 * pip install requirements
   * have a local cache of pip requirements
   * need to export PIP_DOWNLOAD_CACHE before running pip install in venv
+  * 
+
+RequestBin url: http://requestb.in/ycb2isyc
