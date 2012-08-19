@@ -26,6 +26,7 @@ def index():
 
 
 @route('/hook', method='POST')
+@route('/hook/', method='POST')
 def hook():
     payload = request.POST.get('payload')
     if not payload:
@@ -33,6 +34,7 @@ def hook():
         return response
 
     payload = json.loads(payload)
+    print payload
 
     # work out the repo_url
     repo_name = payload['repository']['name']
@@ -57,12 +59,12 @@ def hook():
 
     pip = "%s/bin/pip" % vpath
     #python = "%s/bin/python"
-    nose = "%s/bin/nosetests"
+    nose = "%s/bin/nosetests" % vpath
 
     ret = subprocess.call(r'%s install -r requirements.txt' % pip, shell=True)
 
     print "running nose"
-    ret = subprocess.call(r'nostests' % nose, shell=True)
+    ret = subprocess.call(r'%s' % nose, shell=True)
 
     print ret
 
@@ -72,4 +74,4 @@ def hook():
 app = bottle.default_app()
 
 if __name__ == '__main__':
-    run()
+    run(host='0.0.0.0', port=9080)
