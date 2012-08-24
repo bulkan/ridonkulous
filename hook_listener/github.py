@@ -17,11 +17,14 @@ from virtualenv import create_environment
 templates = os.path.join(os.getcwd(), 'hook_listener', 'templates')
 bottle.TEMPLATE_PATH.append(templates)
 
+#bottle.debug(True)
+logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 
 @route('/', method='GET')
 def index():
+    logger.info('here')
     return template('index.html', test='testing')
 
 
@@ -34,7 +37,7 @@ def hook():
         return response
 
     payload = json.loads(payload)
-    print payload
+    logger.debug(payload)
 
     # work out the repo_url
     repo_name = payload['repository']['name']
@@ -45,14 +48,11 @@ def hook():
 
     vpath = tempfile.mkdtemp(suffix="ridonkulous")
 
-    logger.debug("cloning into: %s" % vpath)
-    print vpath
+    logger.info("cloning repo %s to: %s" % (repo_url, vpath))
 
     create_environment(vpath, site_packages=False)
 
     os.chdir(vpath)
-
-    logger.info('cloning repo')
 
     git.Git().clone(repo_url)
     os.chdir(os.path.join(vpath, repo_name))
@@ -61,12 +61,11 @@ def hook():
     #python = "%s/bin/python"
     nose = "%s/bin/nosetests" % vpath
 
-    ret = subprocess.call(r'%s install -r requirements.txt' % pip, shell=True)
+    ret = subprocess.call(r'%s install -r requirements.txt --use-mirrors' % pip, shell=True)
 
-    print "running nose"
+    logger.info("running nose")
     ret = subprocess.call(r'%s' % nose, shell=True)
-
-    print ret
+    logger.info(ret)
 
     return 'OK'
 

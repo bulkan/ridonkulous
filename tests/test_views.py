@@ -17,7 +17,7 @@ class ServerTests(unittest.TestCase):
         self.app = TestApp(github.app)
 
     def test_app_index(self):
-        payload = open('tests/ridonkulous.payload').read()
+        payload = open('tests/django-sqlpaginator.payload').read()
         resp = self.app.post('/hook', {'payload': payload})
         self.assertEqual("OK", resp.body)
 

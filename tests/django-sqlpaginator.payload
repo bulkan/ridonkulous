@@ -1,0 +1,125 @@
+{
+    "after": "0c5e004dc179b356b3781d2a3edc70b539e94cc4",
+    "before": "11f6d1966e40a8a0740bfa516b1c6450e5d9dcd4",
+    "commits": [
+        {
+            "added": [],
+            "author": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "committer": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "distinct": true,
+            "id": "67d7bb62600db4702f345bf090ea92891210cdb8",
+            "message": "use distribute",
+            "modified": [
+                "setup.py"
+            ],
+            "removed": [],
+            "timestamp": "2012-08-23T21:23:40-07:00",
+            "url": "https://github.com/bulkan/django-sqlpaginator/commit/67d7bb62600db4702f345bf090ea92891210cdb8"
+        },
+        {
+            "added": [],
+            "author": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "committer": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "distinct": true,
+            "id": "4662834bd316cf34e6fc9c0301cac733e6ebdc81",
+            "message": "dependency_links to sqlparse",
+            "modified": [
+                "setup.py"
+            ],
+            "removed": [],
+            "timestamp": "2012-08-23T21:26:38-07:00",
+            "url": "https://github.com/bulkan/django-sqlpaginator/commit/4662834bd316cf34e6fc9c0301cac733e6ebdc81"
+        },
+        {
+            "added": [],
+            "author": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "committer": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "distinct": true,
+            "id": "0c5e004dc179b356b3781d2a3edc70b539e94cc4",
+            "message": "dont need to use distribute\n\n* I can just put sqlparse as a install_requires dep",
+            "modified": [
+                "setup.py"
+            ],
+            "removed": [],
+            "timestamp": "2012-08-23T21:38:32-07:00",
+            "url": "https://github.com/bulkan/django-sqlpaginator/commit/0c5e004dc179b356b3781d2a3edc70b539e94cc4"
+        }
+    ],
+    "compare": "https://github.com/bulkan/django-sqlpaginator/compare/11f6d1966e40...0c5e004dc179",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+        "added": [],
+        "author": {
+            "email": "bulkan@gmail.com",
+            "name": "Bulkan Evcimen",
+            "username": "bulkan"
+        },
+        "committer": {
+            "email": "bulkan@gmail.com",
+            "name": "Bulkan Evcimen",
+            "username": "bulkan"
+        },
+        "distinct": true,
+        "id": "0c5e004dc179b356b3781d2a3edc70b539e94cc4",
+        "message": "dont need to use distribute\n\n* I can just put sqlparse as a install_requires dep",
+        "modified": [
+            "setup.py"
+        ],
+        "removed": [],
+        "timestamp": "2012-08-23T21:38:32-07:00",
+        "url": "https://github.com/bulkan/django-sqlpaginator/commit/0c5e004dc179b356b3781d2a3edc70b539e94cc4"
+    },
+    "pusher": {
+        "name": "none"
+    },
+    "ref": "refs/heads/master",
+    "repository": {
+        "created_at": "2012-08-20T00:55:47-07:00",
+        "description": "Paginate raw sql queries using LIMIT and OFFSET. It will also supports ORDER BY queries",
+        "fork": false,
+        "forks": 0,
+        "has_downloads": true,
+        "has_issues": true,
+        "has_wiki": true,
+        "homepage": "",
+        "language": "Python",
+        "name": "django-sqlpaginator",
+        "open_issues": 1,
+        "owner": {
+            "email": "bulkan@gmail.com",
+            "name": "bulkan"
+        },
+        "private": false,
+        "pushed_at": "2012-08-23T21:37:31-07:00",
+        "size": 1028,
+        "stargazers": 2,
+        "url": "https://github.com/bulkan/django-sqlpaginator",
+        "watchers": 2
+    }
+}
