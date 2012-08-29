@@ -6,14 +6,36 @@ import tempfile
 
 import git
 
+from redis import Redis
+from rq import Queue  # Connection
+
 from virtualenv import create_environment
 
 
 logger = logging.getLogger(__name__)
 
 
+redis_conn = Redis()
+q = Queue(connection=redis_conn)  # no args implies the default queue
+
+
+def store_payload(payload):
+    ''' store payload into redis '''
+
+    # Delay calculation of the multiplication
+    job = q.enqueue(run_tests, payload)
+
+    return job.id
+
+
 def get_payload(payload_id):
     ''' get the payload from redis '''
+
+    return {}
+
+
+def get_all_jobs(self):
+    ''' get all the existing jobs '''
 
     return {}
 
