@@ -1,0 +1,82 @@
+{
+    "after": "5c6b33fe328a84f17736c67987439de2ee29dc50",
+    "before": "b7411d1dbf4e910aa37d2cb4a75fc4bfccac0e1f",
+    "commits": [
+        {
+            "added": [
+                "requirements.txt",
+                "test_ridonky.py"
+            ],
+            "author": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "committer": {
+                "email": "bulkan@gmail.com",
+                "name": "Bulkan Evcimen",
+                "username": "bulkan"
+            },
+            "distinct": true,
+            "id": "5c6b33fe328a84f17736c67987439de2ee29dc50",
+            "message": "added sample files",
+            "modified": [],
+            "removed": [],
+            "timestamp": "2012-09-01T06:03:52-07:00",
+            "url": "https://github.com/bulkan/ridonkulous-example/commit/5c6b33fe328a84f17736c67987439de2ee29dc50"
+        }
+    ],
+    "compare": "https://github.com/bulkan/ridonkulous-example/compare/b7411d1dbf4e...5c6b33fe328a",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+        "added": [
+            "requirements.txt",
+            "test_ridonky.py"
+        ],
+        "author": {
+            "email": "bulkan@gmail.com",
+            "name": "Bulkan Evcimen",
+            "username": "bulkan"
+        },
+        "committer": {
+            "email": "bulkan@gmail.com",
+            "name": "Bulkan Evcimen",
+            "username": "bulkan"
+        },
+        "distinct": true,
+        "id": "5c6b33fe328a84f17736c67987439de2ee29dc50",
+        "message": "added sample files",
+        "modified": [],
+        "removed": [],
+        "timestamp": "2012-09-01T06:03:52-07:00",
+        "url": "https://github.com/bulkan/ridonkulous-example/commit/5c6b33fe328a84f17736c67987439de2ee29dc50"
+    },
+    "pusher": {
+        "email": "bulkan@gmail.com",
+        "name": "bulkan"
+    },
+    "ref": "refs/heads/master",
+    "repository": {
+        "created_at": "2012-09-01T05:48:48-07:00",
+        "description": "example git repo for ridonkulous ci",
+        "fork": false,
+        "forks": 0,
+        "has_downloads": true,
+        "has_issues": true,
+        "has_wiki": true,
+        "name": "ridonkulous-example",
+        "open_issues": 0,
+        "owner": {
+            "email": "bulkan@gmail.com",
+            "name": "bulkan"
+        },
+        "private": false,
+        "pushed_at": "2012-09-01T06:09:37-07:00",
+        "size": 0,
+        "stargazers": 0,
+        "url": "https://github.com/bulkan/ridonkulous-example",
+        "watchers": 0
+    }
+}
