@@ -6,4 +6,4 @@ coverage
 nose
 nose-cov
 webtest
-request
+requests
