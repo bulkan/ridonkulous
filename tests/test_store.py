@@ -20,6 +20,11 @@ def test_hook():
     response = requests.post('http://localhost:5000/hook', data={'payload': payload})
     jobid = response.content
     job = Job.fetch(jobid, connection=redis_conn)
-    print jobid
-    import pdb; pdb.set_trace()
-    print 
+    done = False
+    while not done:
+        job.refresh()
+        if hasattr(job, 'progress'):
+            print json.loads(job.progress)
+            job.progress = ''
+            job.save()
+        done = job.is_finished

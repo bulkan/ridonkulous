@@ -1,5 +1,5 @@
 import logging
-#import json
+import json
 import os
 import subprocess
 import tempfile
@@ -7,7 +7,7 @@ import tempfile
 import git
 
 from redis import Redis
-from rq import Queue
+from rq import Queue, get_current_job
 
 from virtualenv import create_environment
 
@@ -39,19 +39,41 @@ def get_all_jobs(self):
     return q.jobs
 
 
+def update_progress(job, info):
+    ''' update the progress of a job '''
+
+    if not job:
+        return
+
+    if hasattr(job, 'progress'):
+        progress = job.progress
+        progress = json.loads(progress)
+    else:
+        progress = []
+
+    progress = info
+    job.progress = json.dumps(progress)
+    job.save()
+
+    return job
+
+
 def run_tests(payload):
     #payload = get_payload(payload_id)
+    job = get_current_job()
 
     # work out the repo_url
     repo_name = payload['repository']['name']
     owner = payload['repository']['owner']['name']
     repo_url = "git@github.com:%s/%s.git" % (owner, repo_name)
 
+    update_progress(job, 'repo url: %s' % repo_url)
     logger.info("repo: %s" % repo_url)
 
     vpath = tempfile.mkdtemp(suffix="ridonkulous")
 
     logger.info("cloning repo %s to: %s" % (repo_url, vpath))
+    update_progress(job, "cloning repo %s to: %s" % (repo_url, vpath))
 
     create_environment(vpath, site_packages=False)
 
@@ -69,3 +91,5 @@ def run_tests(payload):
     logger.info("running nose")
     ret = subprocess.call(r'%s' % nose, shell=True)
     logger.info(ret)
+    update_progress(job, 'done')
+    return 'ok'
