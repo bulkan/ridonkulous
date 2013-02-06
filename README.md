@@ -3,7 +3,7 @@ ridonkulous
 
 ridonkulous ci via github (work in progress)
 
-![ridonkulous](/bulkan/ridonkulous/raw/master/ridonky.png)
+![ridonkulous](https://raw.github.com/bulkan/ridonkulous/master/ridonky.png)
 
 
 installation
